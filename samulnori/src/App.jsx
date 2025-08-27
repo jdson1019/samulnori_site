@@ -16,10 +16,57 @@ function App() {
   };
 
   const instrumentDirections = {
-    janggu: "d,f,j,k,u",
-    buk: "f,j,r,u",
-    jing: "j",
-    kkweng: "j"
+    janggu: (
+      <div className="keyboard_instructions">
+        <div>
+          <kbd>d</kbd > 
+          or 
+          <kbd>f</kbd>: gung
+        </div>
+        <div>
+          <kbd>j</kbd>:
+          ki
+        </div>
+        <div>
+          <kbd>k</kbd>:
+          ta
+        </div>
+        <div>
+          <kbd>u</kbd>:
+          tak
+        </div>
+      </div>
+    ),
+    buk: (
+      <div className="keyboard_instructions">
+        <div>
+          <kbd>f</kbd > 
+          or 
+          <kbd>j</kbd>: loud
+        </div>
+        <div>
+        <kbd>t</kbd > 
+          or 
+          <kbd>u</kbd>: tak
+        </div>
+      </div>
+    ),
+    jing:(
+      <div className="keyboard_instructions">
+        <div>
+          <kbd>j</kbd > 
+          jing 
+        </div>  
+      </div>
+    ),
+    kkweng: (
+      <div className="keyboard_instructions">
+        <div>
+          <kbd>j</kbd> 
+          geng
+        </div>  
+      </div>
+    ),
   }
 
   const sounds = {
@@ -32,6 +79,7 @@ function App() {
   buk: {
     loud: new Audio("/sounds/TempBuk.m4a"),
     tak: new Audio("/sounds/TempBukTak.m4a"),
+    //add a soft (v and n?)
   },
   jing: {
     jinggg: new Audio("/sounds/TempJing.m4a"),
@@ -113,8 +161,8 @@ function App() {
         <div className='title'>
           {activeInstrument? instrumentNames[activeInstrument] : "Samulnori Simulator"}
         </div>
-        <div className='directions'>
-          {activeInstrument? instrumentDirections[activeInstrument] : "Select an instrument"}
+        <div>
+          {activeInstrument? instrumentDirections[activeInstrument] : <div className='directions'>Select an instrument</div>}
         </div>
       </div>
       <div className='instrument_group'>
